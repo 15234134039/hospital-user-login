@@ -17,4 +17,6 @@ public interface UserService {
 	 */
 	public TbUser findOne(String username);
 
+    public int insert(TbUser user);
+
 }
