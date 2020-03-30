@@ -27,4 +27,9 @@ public class UserServiceImpl implements UserService {
 	public TbUser findOne(String username){
 		return userMapper.selectByUserName(username);
 	}
+
+	@Override
+	public int insert(TbUser user) {
+		return userMapper.insert(user);
+	}
 }

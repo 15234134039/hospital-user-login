@@ -8,7 +8,7 @@
   <!-- 指定spring的配置文件，默认从web根目录寻找配置文件，我们可以通过spring提供的classpath:前缀指定从类路径下寻找 -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath*:spring/applicationContext.xml</param-value>
+    <param-value>classpath*:spring/applicationContext.xml,classpath:spring/spring-security.xml</param-value>
   </context-param>
 
   <!-- 对Spring容器进行实例化 -->
@@ -45,10 +45,21 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
+  <!-- spring-security配置 -->
+  <filter>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
   <servlet-mapping>
     <servlet-name>default</servlet-name>
     <url-pattern>/js/</url-pattern>
     <url-pattern>/css/</url-pattern>
+    <url-pattern>/plugins/**</url-pattern>
   </servlet-mapping>
 </web-app>
 

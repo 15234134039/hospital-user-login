@@ -7,4 +7,6 @@ public interface TbUserMapper {
 
     TbUser selectByUserName(String username);
 
+    int insert(TbUser user);
+
 }
