@@ -26,6 +26,7 @@ public class UserController {
     public Result register(@RequestBody TbUser user){
         user.setCreated(new Date());
         user.setUpdated(new Date());
+        user.setStatus("1");
         int num = userService.insert(user);
         if(num > 0){
             return new Result(true, "注册成功");
